@@ -1,0 +1,7 @@
+# Ignorowanie folderów node_modules
+node_modules/
+
+# Ignorowanie IDE/edytorów
+.vscode/
+.idea/
+.DS_Store

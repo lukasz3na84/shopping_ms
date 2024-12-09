@@ -1,19 +1,19 @@
 version: "3"
 services:
-  nosql-db:
-    image: mvertes/alpine-mongo
-    ports:
-      - "27017:27017"
-    container_name: nosql-db
-    volumes:
-      - ./db/:/data/db
+  # nosql-db:
+  # image: mvertes/alpine-mongo
+  # ports:
+  #   - "27017:27017"
+  # container_name: nosql-db
+  # volumes:
+  #   - ./db/:/data/db
 
   rabbitmq:
     image: rabbitmq:alpine
     container_name: rabbitmq
     ports:
-      - "30295:5672" # Port dla komunikacji RabbitMQ
-      - "40078:15672" # Port dla panelu zarządzania RabbitMQ
+      - "20327:5672" # Port dla komunikacji RabbitMQ
+      - "30327:15672" # Port dla panelu zarządzania RabbitMQ
 
   products:
     build:
@@ -24,7 +24,7 @@ services:
       - "8002:8002"
     restart: always
     depends_on:
-      - "nosql-db"
+      # - "nosql-db"
       - "rabbitmq"
     volumes:
       - .:/app
@@ -41,7 +41,7 @@ services:
       - "8003:8003"
     restart: always
     depends_on:
-      - "nosql-db"
+      # - "nosql-db"
       - "rabbitmq"
     volumes:
       - .:/app
@@ -57,7 +57,7 @@ services:
       - "8001:8001"
     restart: always
     depends_on:
-      - "nosql-db"
+      # - "nosql-db"
       - "rabbitmq"
     volumes:
       - .:/app/

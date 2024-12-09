@@ -7,7 +7,6 @@ services:
   # container_name: nosql-db
   # volumes:
   #   - ./db/:/data/db
-
   rabbitmq:
     image: rabbitmq:alpine
     container_name: rabbitmq

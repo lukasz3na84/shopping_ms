@@ -1,10 +1,10 @@
 services:
-  # rabbitmq:
-  #   image: rabbitmq:alpine
-  #   container_name: rabbitmq
-  #   ports:
-  #     - "20327:5672" # Port dla komunikacji RabbitMQ
-  #     - "30327:15672" # Port dla panelu zarządzania RabbitMQ
+  rabbitmq:
+    image: rabbitmq:alpine
+    container_name: rabbitmq
+    ports:
+      - "20327:5672" # Port dla komunikacji RabbitMQ
+      - "30327:15672" # Port dla panelu zarządzania RabbitMQ
 
   product:
     build:
@@ -13,8 +13,8 @@ services:
     ports:
       - "8002:8002"
     restart: always
-    # depends_on:
-    #   - "rabbitmq"
+    depends_on:
+      - "rabbitmq"
     volumes:
       - ./product:/app
     env_file:
@@ -27,8 +27,8 @@ services:
     ports:
       - "8003:8003"
     restart: always
-    # depends_on:
-    #   - "rabbitmq"
+    depends_on:
+      - "rabbitmq"
     volumes:
       - ./shopping:/app
     env_file:
@@ -41,8 +41,8 @@ services:
     ports:
       - "8001:8001"
     restart: always
-    # depends_on:
-    #   - "rabbitmq"
+    depends_on:
+      - "rabbitmq"
     volumes:
       - ./customer:/app
     env_file:

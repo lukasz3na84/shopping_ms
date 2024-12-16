@@ -56,7 +56,7 @@ services:
       - shopping
       - customer
     ports:
-      - "80:80"
+      - "40247:40247"
 
 networks:
   default:
